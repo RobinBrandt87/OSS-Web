@@ -1,0 +1,313 @@
+/*
+@import url("./src/blueprint-css-master/blueprint/src/form.css");
+@import url("./src/blueprint-css-master/blueprint/src/grid.css");
+@import url("./src/blueprint-css-master/blueprint/src/ie.css");
+@import url("./src/blueprint-css-master/blueprint/src/print.css");
+@import url("./src/blueprint-css-master/blueprint/src/reset.css");
+@import url("./src/blueprint-css-master/blueprint/src/typography.css");
+*/
+html { 
+  margin: 0;
+  padding: 0;
+  background-color: #123456;
+  min-width: 2000px;
+  color: #EEEEEE;
+  scroll-behavior: auto;
+}
+body{
+  padding: 0;
+  margin: 1em 5em;
+  font-family: Arial, Verdana, sans-serif;
+  font-size: 100%;
+}
+div#header, div#footer {
+  background-color: #123456;
+  border: 2px solid #EEEEEE;
+  padding: 1em 2em;
+  text-align: center;
+  color: #EEEEEE;
+
+  
+
+}
+div#footer a {
+    color: #EEEEEE;
+}
+div#center {
+  background-color: #123456;
+  border: 2px solid #EEEEEE;
+  padding: 1em 2em;
+  margin: 1em 1em;
+  color: #EEEEEE;
+
+}
+h1, h2, h3, h4 {
+  font-family: sans-serif;
+  color: #EEEEEE;
+  
+  padding: .5em 0 .25em;
+  font-size: 200%;
+}
+h2 {
+  font-size: 150%;
+}
+h3 {
+  font-size: 125%;
+}
+h4 {
+  font-size: 100%;
+}
+form {
+  border: thin solid #EEEEEE;
+  margin: .5em 2em;
+  padding: 1em;
+  background-color: #123456;
+  
+  
+}
+form#Menu{
+  border: thin solid #EEEEEE;
+  margin: 0em;
+  padding: 0em;
+  height: 3.1em;
+  background-color: #123456;    
+}
+div.input {
+  position: relative;
+  height: 2em;
+  left: 30%;
+}
+div.input input {
+  position: absolute;
+  left: 8em;
+  top: 0; 
+}
+tr.red
+{
+  background: red;
+}
+tr.gelb
+{
+  background: yellow;
+  color:  black;
+}
+tr.green
+{
+  background: green;
+ 
+}
+div.input input#login {
+  position: absolute;
+  left: 8em;
+  top: 0; 
+  min-width: 12.3em;
+}
+div.buttonrow
+{
+  position: relative;
+  height: 2em;
+  left: 30%;
+}
+div.MenuButton
+{
+  position: relative;
+  height: 2.2em;
+  left: 1%;
+}
+div.MenuButton input
+{
+   height: 3em;
+   width:  auto;
+}
+div.radio div.input label {
+  position: relative;
+  left: 3em;
+}
+div.error {
+  border: thin solid red;
+  color: red;
+  left: 30%;
+  padding: 1em;
+  margin: .5em 2em;
+}
+div.error div.title {
+  font-weight: bold;
+  text-decoration: underline;
+}
+.wichtig {
+  color: red;
+  font-weight: bold;
+}
+div#auswahl{
+  width: 29em;
+  
+  margin: 0 auto;
+}
+div#auswahl form{
+  border-style: none;
+
+  margin: 0.5em;
+  padding: 0;
+}
+.clear_l{
+  clear: left;
+}
+table{
+  border: solid 1px #EEEEEE;
+
+}
+th{
+  border: solid 1px #EEEEEE;
+  
+}
+td{
+  border: solid 1px #EEEEEE; 
+  width: auto;
+  max-width: 20em;
+  
+  
+}
+input[type="text"] {
+    max-width: 7em;
+}
+input[type="text"].Breit {
+    max-width: 12em;
+}
+html > body > form > div > div#Menu > div.MenuButton > input#Logout#Logout{
+  float: right;
+  margin-right: 1em;
+}
+form.rechts{
+ float: left;
+}
+html > body > div#center > form > table#Mitarbeiter > tbody > tr > td .Save{
+  width: 5em;
+}
+.Breit
+{
+  width: 12em;
+}
+.Groß
+{
+  width: 11em;
+}
+.ExtraBreit
+{
+  max-width: 17em;
+  width: 17em;
+}
+input[type="text"].ExtraBreit
+{
+  max-width: 17em;
+  width: 17em;
+}
+input[type="text"].ExtraExtraBreit
+{
+  max-width: 23.5em;
+  width: 23.5em;
+}
+#RoutenDetailsAlt
+{
+    
+    margin: 1em;
+    margin-top: 2em;
+     float:left;
+    width:45%;
+}
+#center
+{
+    min-height: 110em;
+}
+#Auswahl_Tab
+{
+  
+    margin: 1em;
+    margin-top: 2em;
+    width:45%;
+    float:right;
+  
+}
+#Dienstplan
+{
+  
+position: relative;
+right: -40em;
+bottom: 3.7em;
+    
+  
+}
+html > body > div#center > form > table#lehrertab > tbody > tr > td > input[type="password"] {
+    width: 5em;
+}
+html > body > div#center > form > table#lehrertab > tbody > tr > td > input#Eingabe[type="text"]
+{
+    max-width: 100%;
+}
+html > body > div#center > form > table#lehrertab > tbody > tr > td > input#Eingabe1[type="text"]
+{
+    max-width: 100%;
+}
+html > body > div#center > form > table#lehrertab > tbody > tr > td > input#Eingabe2[type="text"]
+{
+    max-width: 100%;
+}
+input.Bearbeiten {
+
+    color: transparent;
+    background-color: transparent;
+    background-image: url(./src/Bilder/Buton.png);  
+}
+input.Sperren {
+
+   
+   
+    color: transparent;
+    background-color: transparent;
+    background-image: url(./src/Bilder/Sperren.png);  
+}
+input.Aktivieren {
+  background-size: auto;
+    width:  5em;
+    color: transparent;
+    background-color: transparent;
+    background-image: url(./src/Bilder/Aktivieren.png);  
+}
+input.Anzeigen {
+  background-size: auto;
+    width:  5em;
+    color: transparent;
+    background-color: transparent;
+    background-image: url(./src/Bilder/Anzeigen.png);  
+}
+input.Speichern {
+
+    max-width: 100%;
+    color: transparent;
+    background-color: transparent;
+    background-image: url(./src/Bilder/Speichern.png);  
+}
+input.Gelesen {
+
+    max-width: 100%;
+    color: transparent;
+    background-color: transparent;
+    background-image: url(./src/Bilder/Gelesen.png);  
+}
+input.Löschen {
+
+    max-width: 100%;
+    color: transparent;
+    background-color: transparent;
+    background-image: url(./src/Bilder/Löschen.png);  
+}
+
+input.Sperren {
+
+    max-width: 100%;
+    color: transparent;   
+}
+input[type="submit"] {
+    max-width: 20em;
+    min-width: 5em;
+}
+    
