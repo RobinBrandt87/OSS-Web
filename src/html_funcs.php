@@ -812,25 +812,42 @@ parameter : $userdaten  ein Array mit Vor und NAchname des Users der rest ist sc
 rückgabewert :  Die fertige Ansicht für den ausgewählten User als String in xhtml 
 
 */#####################################################################################
-function GetLiveAnsicht($userdaten)
+function GetLiveAnsicht()
 {
-    $html = "	 
+	    $html .= "	 
 	 \n<table id=\"Routen_Tab\">
 	 \n	<thead>
 	 \n		<tr>
 	 \n			<th>Mitarbeiter</th>
+	 \n			<th>Objekt</th>
 	 \n			<th>Zeitpunkt des letzten Scan</th>
-	 \n			<th>NFC ID des letzten Scan</th>
-     \n			<th>Standort des NFC Tags</th>
+     \n			<th>Standort des NFC Tags</th>	
+
 	 \n		</tr>
 	 \n	</thead>
-	 \n	<tbody>
-	 \n <tr>
-	 \n <td>".$userdaten['0']['Vname']." ".$userdaten['0']['Nname']."</td>
-	 \n <td>".$_SESSION['Live']['letzterScan']."</td>
-	 \n <td>".$_SESSION['Live']['letzterTag']."</td>
-	 \n <td><img id=\"hintergrund\" src=\"./APP-COM/src/Bilder/".$_SESSION['Live']['letzterTag'].".PNG\" alt=\"".$_SESSION['Live']['letzterTag']."\"></td>
-	 \n </tr></tbody>\n</table>";
+	 \n	<tbody>";
+	$LoggArr = LiveAnsichtLoggedInUser();
+	foreach( $LoggArr as $Logg)
+	{
+			$dbconn = dbconnect("HssUser","oss_test");
+			$Name['0']['MitarbeiterID'] = $Logg['MitarbeiterID'];
+			$ProtokllArr = GetProtokolle($Name,"1");
+			//echo  $Name['0']['MitarbeiterID'];
+			$Protokoll = $ProtokllArr->fetch_all(MYSQLI_ASSOC);
+			DebugArr($Protokoll);
+			$Objekt = GetObjektNameByID($dbconn, $Protokoll['0']['ObjektID']);
+			DebugArr($Objekt);
+		    $html .= "	 
+			\n	<tbody>
+			\n <tr>
+			\n <td>".$Logg['Nickname']."</td>
+			\n <td>".$Protokoll['0']['Scan_ZS']."</td>
+			\n <td>".$Objekt['0']['Name']."</td>
+			\n <td>".$Protokoll['0']['Raumname']." ".$Protokoll['0']['RaumNr']." ".$Protokoll['0']['Position']."</td>
+
+			\n </tr>";
+	}
+ 	$html .="</tbody>\n</table><img id=\"hintergrund\" src=\"./APP-COM/src/Bilder/".$Protokoll['0']['NFC_ID'].".PNG\" alt=\"".$Protokoll['0']['NFC_ID']."\">";
     
     return $html;
 }

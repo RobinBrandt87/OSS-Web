@@ -369,9 +369,8 @@ function MenuMerker()
     } 
             if(isset($_POST['Menu7']) )
     {//Wenn du eine Anfrage bekommst lösche den MenuMerker in der Session und setzte deinen 
-                        $ziel="./LoginLive.php?".SID;
-			// Umlenkung nach inter.php mit einer Session
-			header("Location: $ziel"); 
+             unset( $_SESSION['intern']);
+         $_SESSION['intern'] = "Live Ansicht";
     } 
             if(isset($_POST['Menu8']) )
     {//Wenn du eine Anfrage bekommst lösche den MenuMerker in der Session und setzte deinen 
@@ -833,5 +832,17 @@ function RutenPlanen()
     }    
     return $Content;
 }
+/*######################################################################################
+//function LiveAnsicht()
 
+bindet die Programmlogk für LiveAnsicht ein
+#######################################################################################*/
+function LiveAnsicht()
+{
+     if (isset($_SESSION['intern'])&&$_SESSION['intern']=="Live Ansicht")
+     {
+        $Html = GetLiveAnsicht();
+     }
+     return $Html;
+}
 ?>

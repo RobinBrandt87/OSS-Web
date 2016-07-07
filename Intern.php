@@ -1,6 +1,6 @@
 <?php
-  //error_reporting(E_ALL);
- error_reporting(0);
+  error_reporting(E_ALL);
+  //error_reporting(0);
   // $mydebug = true; besser als Konstante => global
 	define( "MYDEBUG", true);
 
@@ -31,6 +31,7 @@
     $Content .= MeineDaten();
     $Content .= RoutenDetails();
     $Content .= RutenPlanen();
+    $Content .= LiveAnsicht();
     
     Logout();  // php programm function
     Save();    // php programm function 

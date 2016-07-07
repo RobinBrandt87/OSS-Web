@@ -531,7 +531,7 @@
     
     
     */####################################################################################################
-    function GetProtokolle( $MitarbeiterID, $Limit)
+    function GetProtokolle($MitarbeiterID,$Limit)
     {   
         //DebugArr($MitarbeiterID);
         $dbconn = dbconnect("HssUser","oss_test");
@@ -562,7 +562,7 @@
         $prepstmt->execute();
         $prepstmt->bind_result( $Protokolle );
         $Protokolle = $prepstmt->get_result();
-
+          
         // Schritt 7: fetchen
         //echo DebugArr($Protokolle);
         return  $Protokolle;
@@ -1265,5 +1265,22 @@
         $prepstmt->execute();  
         
        
-   }	
+   }
+   /*#######################################################################################################
+   //function LiveAnsichtLoggedInUser()
+
+   holt aus der Datenbank alle User die Eingeloogt sind und ihren letzten Scan 
+
+   #######################################################################################################*/	
+   function LiveAnsichtLoggedInUser()
+   {
+        $dbconn = dbconnect("HssUser","oss_test");
+        $sql = "SELECT * FROM `login_mitarbeiter` WHERE `Status` = \"LoggedIn\"";
+        $dbconn->query("SET NAMES UTF8");
+        //$dbconn->set_charset("latin1");
+        $result = $dbconn->query($sql);
+        $ds = $result->fetch_all(MYSQLI_ASSOC);
+        //DebugArr($ds);
+        return $ds;  
+   }
     ?>
