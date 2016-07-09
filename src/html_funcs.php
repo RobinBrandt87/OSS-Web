@@ -822,7 +822,7 @@ function GetLiveAnsicht()
 	 \n			<th>Objekt</th>
 	 \n			<th>Zeitpunkt des letzten Scan</th>
      \n			<th>Standort des NFC Tags</th>	
-
+	\n			<th>Standort des NFC Tags</th>	
 	 \n		</tr>
 	 \n	</thead>
 	 \n	<tbody>";
@@ -844,10 +844,10 @@ function GetLiveAnsicht()
 			\n <td>".$Protokoll['0']['Scan_ZS']."</td>
 			\n <td>".$Objekt['0']['Name']."</td>
 			\n <td>".$Protokoll['0']['Raumname']." ".$Protokoll['0']['RaumNr']." ".$Protokoll['0']['Position']."</td>
-
+			\n <td><img id=\"hintergrund\" src=\"./APP-COM/src/Bilder/".$Protokoll['0']['NFC_ID'].".PNG\" alt=\"".$Protokoll['0']['NFC_ID']."\"></td>
 			\n </tr>";
 	}
- 	$html .="</tbody>\n</table><img id=\"hintergrund\" src=\"./APP-COM/src/Bilder/".$Protokoll['0']['NFC_ID'].".PNG\" alt=\"".$Protokoll['0']['NFC_ID']."\">";
+ 	$html .="</tbody>\n</table>";
     
     return $html;
 }
@@ -991,7 +991,7 @@ function GetLiveAnsicht()
 								}
 								$table .="</select></td>";
 								$table .= "<td><select name =\"Route\">";
-								$RoutenArr = GetRoutenByKid($_SESSION['login']['kid']);
+								$RoutenArr =  GetRoutenByKidAndStatus($_SESSION['login']['kid'],"OK");
 								foreach($RoutenArr as $Route)
 								{
 								$table .="<option>".$Route['Name']."</option>";

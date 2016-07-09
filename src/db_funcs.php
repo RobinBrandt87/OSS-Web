@@ -1283,4 +1283,22 @@
         //DebugArr($ds);
         return $ds;  
    }
+   /*####################################################################################################
+   // function GetRoutenByKidAndStatus($kid,$status)
+
+
+   ####################################################################################################*/
+   function GetRoutenByKidAndStatus($kid,$status)
+   {
+        $dbconn = dbconnect("HssUser","oss_test");
+        $sql = "SELECT `RoutenID`, `Name`, `Beschreibung`, `Status_RO`, `ObjektID` FROM `routen` WHERE `kid` = ?  AND  `Status_RO` = ?";
+        $prepstmt = $dbconn->stmt_init();
+        $prepstmt->prepare($sql);
+        $prepstmt->bind_param("ss",$kid,$status);
+        $prepstmt->execute();
+        $result = $prepstmt->get_result();
+        $antwort = $result->fetch_all(MYSQLI_ASSOC);
+        return $antwort; 
+   }
+
     ?>

@@ -13,7 +13,7 @@
   include_once "./src/html_funcs.php";
   IPcheck();
   Check_LoggedIn();
-  
+  DebugArr($_SESSION);
    //DebugArr(GetRoutenInBearbeitung($_SESSION['login']['kid']));
     $Content = "";
 
